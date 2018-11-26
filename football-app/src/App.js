@@ -14,7 +14,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div
+          style={{
+            backgroundColor: "tomato",
+            minHeight: "50px"
+          }}
+        >
           <h2>Football Live Score App</h2>
           <p>designed by Sushant Sukhi.</p>
         </div>

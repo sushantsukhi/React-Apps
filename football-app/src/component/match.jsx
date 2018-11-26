@@ -36,38 +36,58 @@ class Match extends Component {
     } else {
       return (
         <div className="App">
-          <h3>Standings</h3>
+          <h1>Matches</h1>
           <ul>
             {items.map(item => (
               <li key={item.match_id}>
-                {item.match_hometeam_score != item.match_awayteam_score ? (
-                  item.match_hometeam_score > item.match_awayteam_score ? (
-                    <span role="img" aria-label="emoji">
-                      &#9989;
-                    </span>
+                <div
+                  className="teamDiv"
+                  id="homeTeamDiv"
+                  style={
+                    item.match_hometeam_score > item.match_awayteam_score
+                      ? { fontWeight: "bold" }
+                      : { fontWeight: "normal" }
+                  }
+                >
+                  {item.match_hometeam_score != item.match_awayteam_score ? (
+                    item.match_hometeam_score > item.match_awayteam_score ? (
+                      <span role="img" aria-label="emoji">
+                        &#9989;
+                      </span>
+                    ) : (
+                      <span role="img" aria-label="emoji">
+                        &#10060;
+                      </span>
+                    )
                   ) : (
-                    <span role="img" aria-label="emoji">
-                      &#10060;
-                    </span>
-                  )
-                ) : (
-                  ""
-                )}
-                {item.match_hometeam_name} ({item.match_hometeam_score}) : (
-                {item.match_awayteam_score}) {item.match_awayteam_name}
-                {item.match_hometeam_score != item.match_awayteam_score ? (
-                  item.match_hometeam_score < item.match_awayteam_score ? (
-                    <span role="img" aria-label="emoji">
-                      &#9989;
-                    </span>
+                    ""
+                  )}
+                  {item.match_hometeam_name} ({item.match_hometeam_score}) :
+                </div>
+                <div
+                  className="teamDiv"
+                  id="awayTeamDiv"
+                  style={
+                    item.match_hometeam_score < item.match_awayteam_score
+                      ? { fontWeight: "bold" }
+                      : { fontWeight: "normal" }
+                  }
+                >
+                  : ({item.match_awayteam_score}) {item.match_awayteam_name}
+                  {item.match_hometeam_score != item.match_awayteam_score ? (
+                    item.match_hometeam_score < item.match_awayteam_score ? (
+                      <span role="img" aria-label="emoji">
+                        &#9989;
+                      </span>
+                    ) : (
+                      <span role="img" aria-label="emoji">
+                        &#10060;
+                      </span>
+                    )
                   ) : (
-                    <span role="img" aria-label="emoji">
-                      &#10060;
-                    </span>
-                  )
-                ) : (
-                  ""
-                )}
+                    ""
+                  )}
+                </div>
               </li>
             ))}
           </ul>

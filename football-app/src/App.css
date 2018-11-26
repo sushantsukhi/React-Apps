@@ -15,6 +15,7 @@ a {
 
 div {
   background-color: rgb(140, 220, 240);
+  text-align: center;
 }
 
 .teamDiv {
@@ -68,5 +69,5 @@ table th {
 }
 
 span {
-  background-color: rgba(122, 124, 126, 0.867);
+  padding: 8px;
 }

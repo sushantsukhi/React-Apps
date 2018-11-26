@@ -36,7 +36,7 @@ class Standings extends Component {
     } else {
       return (
         <div className="App">
-          <h3>Standings</h3>
+          <h1>Standings</h1>
 
           {/* This logic is used to filter JSON object items */}
           {items
