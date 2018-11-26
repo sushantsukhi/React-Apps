@@ -1,0 +1,72 @@
+.App ul,
+li,
+a {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 10px;
+  text-align: center;
+  margin-left: 10px;
+  border: 1px solid blue;
+}
+
+.App {
+  background-color: rgb(140, 220, 240);
+}
+
+div {
+  background-color: rgb(140, 220, 240);
+}
+
+.teamDiv {
+  height: 50%;
+  width: 50%;
+  background-color: rgb(140, 220, 240);
+  display: inline-block;
+}
+
+#homeTeamDiv {
+  text-align: right;
+}
+
+#awayTeamDiv {
+  text-align: left;
+}
+
+h2 {
+  font: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+p {
+  text-align: right;
+}
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:hover {
+  background-color: rgba(7, 147, 247, 0.867);
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #030b6d;
+  color: white;
+}
+
+span {
+  background-color: rgba(122, 124, 126, 0.867);
+}
