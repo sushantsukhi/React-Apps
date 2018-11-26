@@ -6,7 +6,7 @@ class Match extends Component {
     super(props);
     this.state = {
       items: [],
-      isLoaded: false
+      isStandingsLoaded: false
     };
   }
 
@@ -18,16 +18,16 @@ class Match extends Component {
       .then(jsonResult => {
         console.log(jsonResult);
         this.setState({
-          isLoaded: true,
+          isStandingsLoaded: true,
           items: jsonResult
         });
       });
   }
 
   render() {
-    var { isLoaded, items } = this.state;
+    var { isStandingsLoaded, items } = this.state;
 
-    if (!isLoaded) {
+    if (!isStandingsLoaded) {
       return (
         <div>
           <strong>Loading Matches....</strong>
@@ -36,35 +36,38 @@ class Match extends Component {
     } else {
       return (
         <div className="App">
-          <h3>Matches</h3>
+          <h3>Standings</h3>
           <ul>
             {items.map(item => (
               <li key={item.match_id}>
-                <div>
-                  <div
-                    className="teamDiv"
-                    id="homeTeamDiv"
-                    style={
-                      item.match_hometeam_score > item.match_awayteam_score
-                        ? { fontWeight: "bold", backgroundColor: "green" }
-                        : { fontWeight: "normal" }
-                    }
-                  >
-                    {item.match_hometeam_name} ({item.match_hometeam_score}):
-                  </div>
-
-                  <div
-                    className="teamDiv"
-                    id="awayTeamDiv"
-                    style={
-                      item.match_hometeam_score < item.match_awayteam_score
-                        ? { fontWeight: "bold", backgroundColor: "green" }
-                        : { fontWeight: "normal" }
-                    }
-                  >
-                    :({item.match_awayteam_score}) {item.match_awayteam_name}
-                  </div>
-                </div>
+                {item.match_hometeam_score != item.match_awayteam_score ? (
+                  item.match_hometeam_score > item.match_awayteam_score ? (
+                    <span role="img" aria-label="emoji">
+                      &#9989;
+                    </span>
+                  ) : (
+                    <span role="img" aria-label="emoji">
+                      &#10060;
+                    </span>
+                  )
+                ) : (
+                  ""
+                )}
+                {item.match_hometeam_name} ({item.match_hometeam_score}) : (
+                {item.match_awayteam_score}) {item.match_awayteam_name}
+                {item.match_hometeam_score != item.match_awayteam_score ? (
+                  item.match_hometeam_score < item.match_awayteam_score ? (
+                    <span role="img" aria-label="emoji">
+                      &#9989;
+                    </span>
+                  ) : (
+                    <span role="img" aria-label="emoji">
+                      &#10060;
+                    </span>
+                  )
+                ) : (
+                  ""
+                )}
               </li>
             ))}
           </ul>
